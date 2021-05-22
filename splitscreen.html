@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> test stplit screen</title>
+
+	<style>
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		.hero{
+			height: 200px;
+			background:purple;
+
+		}
+		
+         .about{
+         	border:5px double red;
+         	display: flex;
+         	
+
+         	
+
+         }
+         .title{
+         	width: 50%;
+            
+         	background:salmon;
+         	position: relative;
+
+         }
+
+         .title h1{
+         	
+         	text-align: center;
+         	
+
+
+         }
+         .about-pages{
+         	width: 50%;
+
+        
+         }
+
+         .about-pages > div{
+         		height: 100vh;
+         }
+
+         .about-page:first-child{
+         	background:yellow;
+         
+         
+         }
+         .about-page:nth-child(2){
+         	background:pink;
+         	
+         }
+         .about-page:last-child{
+         	background:orangered;
+     
+         }
+
+
+		.services{
+			height: 50vh;
+			background:#222;
+			clear:both;
+		}
+		._stick{
+			position: sticky;
+			top:0;
+			background:green;
+			height: 100vh;
+		}
+		._right{
+			position: relative;
+       transform: translate(100%);
+              }
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+	<div class="all">
+		<div class="hero"></div>
+		<section class="about">
+			<div class="title">
+				<h1> About us</h1>
+			</div>
+			<div class="about-pages">
+				<div class="about-page">
+					<h2>project 1</h2>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam id, unde, aliquid aliquam blanditiis eius, mollitia quaerat tempora error explicabo laudantium, possimus vel. Labore nesciunt sunt obcaecati autem, hic eius maiores fugiat voluptatem quibusdam placeat reiciendis itaque modi, adipisci.</p>
+				</div>
+					<div class="about-page">
+					<h2>project 2</h2>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam id, unde, aliquid aliquam blanditiis eius, mollitia quaerat tempora error explicabo laudantium, possimus vel. Labore nesciunt sunt obcaecati autem, hic eius maiores fugiat voluptatem quibusdam placeat reiciendis itaque modi, adipisci.</p>
+				</div>
+
+					<div class="about-page last">
+					<h2>project 3</h2>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam id, unde, aliquid aliquam blanditiis eius, mollitia quaerat tempora error explicabo laudantium, possimus vel. Labore nesciunt sunt obcaecati autem, hic eius maiores fugiat voluptatem quibusdam placeat reiciendis itaque modi, adipisci.</p>
+				</div>
+			</div>
+		</section>
+		<section class="services">
+			 Lorem ipsum dolor, sit, amet consectetur adipisicing elit. Cumque nostrum similique quidem illum eveniet quas saepe, et? Corrupti nisi dignissimos alias, illum impedit, ex porro possimus similique quisquam dicta.
+
+		</section>
+		<h2 id="showScroll"></h2>
+	</div>
+
+
+	<script>
+
+		
+		
+
+     let title = document.querySelector('.title');
+         
+
+   
+    window.addEventListener('scroll', function() {
+     let scrolled = window.pageYOffset;
+     let start = document.querySelector('.about-page').offsetTop;
+     let end  = document.querySelector('.about-page.last').offsetTop;
+     console.log(scrolled,end)
+
+     if(scrolled > start){
+       title.classList.add('_stick')
+      }
+     
+});
+
+
+
+
+	</script>
+</body>
+</html>

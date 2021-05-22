@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>direction aware</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .links{
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      width: 80%;
+      margin:auto;
+    }
+    .links a{
+      position: relative;
+      margin:.2rem 3rem;
+      text-decoration: none;
+      font-size: 1.7rem;
+
+    }
+    .underline{
+      position: absolute;
+      width: 0;
+      left:0;
+      block-size: 4px;
+      background-color: purple;
+      bottom:-.1rem;
+      transition: .3s;
+    }
+  </style>
+</head>
+<body>
+
+
+   
+  <div class="links">
+    <div class="underline"></div>
+    <a href="">link 1 </a>
+    <a href="">link2 </a>
+    <a href=""> link3 </a>
+    <a href=""> link4</a>
+    <a href=""> link5</a>
+  </div>
+  <script>
+    let underline = document.querySelector('.underline')
+    let a  = document.querySelectorAll('a')
+
+
+    function underliner(e){
+      underline.style.left = e.offsetLeft + 'px'
+      underline.style.width = e.offsetWidth + 'px'
+    }
+
+  a.forEach(link=>{
+    link.addEventListener('mouseover',(e)=>{
+      underliner(e.target)
+    })
+  })
+
+
+  </script>
+</body>
+</html>
